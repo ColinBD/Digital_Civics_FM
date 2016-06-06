@@ -26,8 +26,8 @@ The repository contains two folder 'forRadioPi' and 'forServerPi'. As such two r
 
 + The code within the forRadioPi folder should be loaded onto a raspberry pi and placed within the modified radio. The job of this code is to look for user interactions with the radio and then play the appropriate audio files, display the appropriate images on the screen, or eject/withdraw the screen.
 + The code within the forServerPi folder should be loaded onto a pi which does not need to be placed within the radio. The job of this code is to run scripts at regular intervals which:
-- for the twitter streams: scrape twitter and returns tweets including the @uniofnewcastle address, and tweets with a hash tag relating to the users research interests (which in this case was #breastfeeding). These tweets are parsed to make them more legible and fed into a text to speech convertor. The audio files which are returned are then pushed onto the PI within the radio waiting for the user to play them.
-- for the instagram stream: Stuart to complete
+    - for the twitter streams: scrape twitter and returns tweets including the @uniofnewcastle address, and tweets with a hash tag relating to the users research interests (which in this case was #breastfeeding). These tweets are parsed to make them more legible and fed into a text to speech convertor. The audio files which are returned are then pushed onto the PI within the radio waiting for the user to play them.
+    - for the instagram stream: Stuart to complete
 
 ## Installing dependancies
 
