@@ -43,7 +43,7 @@ CereProc is used for the text to speech conversion. To apply for an academic lic
 
 
 ## License
-The txt2wavTool.py file contains code written by CereProc and contains a license within the file. All other files were written by Colin, Stuart or Helen for the purpose of this project and are licensed under the MIT license (see below)
+The txt2wavTool.py file contains code written by CereProc and is thus subject to their license (contained within the file). All other files were written by Colin, Stuart or Helen for the purpose of this project and are licensed under the MIT license (see below)
 
 Copyright (c) <2016> <Colin Dodds, Stuart Nicholson, Helen Rice>
 
