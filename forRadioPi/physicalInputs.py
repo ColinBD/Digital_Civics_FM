@@ -36,7 +36,10 @@ try:
 				pygame.mixer.music.stop() #ensure no other audio is playing
 				# play audio file stating which input is selected 
 				return_code = subprocess.call(["aplay", 'TwitterSelected.wav'])
-				
+				# if the screen is out put it back because we don't need it
+				if ejectState == True:
+					ejectState = False
+					subprocess.call(['eject', '-t'])
 		elif GPIO.input(16) == 0: #knob position 2 so special interest selected
 			if selected != 'specialInterest':
 				selected = 'specialInterest'
@@ -44,6 +47,10 @@ try:
 				pygame.mixer.music.stop() #ensure no other audio is playing
 				# play audio file stating which input is selected 
 				return_code = subprocess.call(["aplay", 'SpecialInterestSelected.wav'])
+				# if the screen is out put it back because we don't need it
+				if ejectState == True:
+					ejectState = False
+					subprocess.call(['eject', '-t'])
 		elif GPIO.input(18) == 0: #knob position 3 so facebook selected
 			if selected != 'facebook':
 				selected = 'facebook'
@@ -51,6 +58,10 @@ try:
 				pygame.mixer.music.stop() #ensure no other audio is playing
 				# play audio file stating which input is selected 
 				return_code = subprocess.call(["aplay", 'FacebookSelected.wav'])
+				# if the screen is out put it back because we don't need it
+				if ejectState == True:
+					ejectState = False
+					subprocess.call(['eject', '-t'])
 		else: #knob position 4 so instagram selected
 			if selected != 'instagram':
 				selected = 'instagram'
@@ -58,6 +69,10 @@ try:
 				print 'instagram selected'
 				# play audio file stating which input is selected 
 				return_code = subprocess.call(["aplay", 'InstagramSelected.wav'])
+				# if the screen is retracted then eject it because we will need it
+				if ejectState == False:
+					ejectState = True
+					subprocess.call(['eject'])
 		
 		#look for play button being pressed (on pin 7)
 		if GPIO.input(7) == 0:
