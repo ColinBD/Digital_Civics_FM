@@ -9,33 +9,36 @@ A focus group of older people expressed a desire for Newcastle University's digi
 ## Features
 
 The radio has a dial to allow the user to select one of four streams:
-1. Newcastle University's twitter communications
-2. Twitter activity relating to the user's research area of interest.
-3. Newcastle University's Facebook activity
-4. Newcastle University's Instagram activity
+
+* Newcastle University's twitter communications
+* Twitter activity relating to the user's research area of interest.
+* Newcastle University's Facebook activity
+* Newcastle University's Instagram activity
 
 The radio has three buttons - play, stop, and eject.
-a) The play button reads out tweets if one of the two twitter streams is selectd
-b) The stop button ends audio playback
-c) The eject button toggles the screen in and out of the radio. 
++ The play button reads out tweets if one of the two twitter streams is selectd
++ The stop button ends audio playback
++ The eject button toggles the screen in and out of the radio. 
 
 ## Using the software
 
 The repository contains two folder 'forRadioPi' and 'forServerPi'. As such two raspberry PI computers are required.
 
-1. The code within the forRadioPi folder should be loaded onto a raspberry pi and placed within the modified radio. The job of this code is to look for user interactions with the radio and then play the appropriate audio files, display the appropriate images on the screen, or eject/withdraw the screen.
-2. The code within the forServerPi folder should be loaded onto a pi which does not need to be placed within the radio. The job of this code is to run scripts at regular intervals which:
-a) for the twitter streams: scrape twitter and returns tweets including the @uniofnewcastle address, and tweets with a hash tag relating to the users research interests (which in this case was #breastfeeding). These tweets are parsed to make them more legible and fed into a text to speech convertor. The audio files which are returned are then pushed onto the PI within the radio waiting for the user to play them.
-b) for the instagram stream: Stuart to complete
++ The code within the forRadioPi folder should be loaded onto a raspberry pi and placed within the modified radio. The job of this code is to look for user interactions with the radio and then play the appropriate audio files, display the appropriate images on the screen, or eject/withdraw the screen.
++ The code within the forServerPi folder should be loaded onto a pi which does not need to be placed within the radio. The job of this code is to run scripts at regular intervals which:
+- for the twitter streams: scrape twitter and returns tweets including the @uniofnewcastle address, and tweets with a hash tag relating to the users research interests (which in this case was #breastfeeding). These tweets are parsed to make them more legible and fed into a text to speech convertor. The audio files which are returned are then pushed onto the PI within the radio waiting for the user to play them.
+- for the instagram stream: Stuart to complete
 
 ## Installing dependancies
+
 Twython is used to scrape twitter. It must be installed on the serverPI. 
-  sudo pip install twython
+    
+    sudo pip install twython
   
 CereProc is used for the text to speech conversion. To apply for an academic license and to download the code visit: https://www.cereproc.com/en/products/academic 
-1) On the server PI you must include a voice file (heather.voice in our case), a licence file, and the cerevoice_eng python library. These are not included within the repository for copyright reasons. 
-2) Within the txt2wavTool.py file (line 41) you must point to the cerevoice_eng/pylib folder that is on your system. 
-3) Within scrapeTwitter.py (line 12) you must point to licence file and the voice file on your system.
++ On the server PI you must include a voice file (heather.voice in our case), a licence file, and the cerevoice_eng python library. These are not included within the repository for copyright reasons. 
++ Within the txt2wavTool.py file (line 41) you must point to the cerevoice_eng/pylib folder that is on your system. 
++ Within scrapeTwitter.py (line 12) you must point to licence file and the voice file on your system.
 
 
 
