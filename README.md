@@ -26,6 +26,7 @@ The repository contains two folder 'forRadioPi' and 'forServerPi'. As such two r
 
 + The code within the forRadioPi folder should be loaded onto a raspberry pi and placed within the modified radio. The job of this code is to look for user interactions with the radio and then play the appropriate audio files, display the appropriate images on the screen, or eject/withdraw the screen. To use this code start with:
 
+
     python physicalInputs.py
     
 + The code within the forServerPi folder should be loaded onto a pi which does not need to be placed within the radio. The job of this code is to run scripts at regular intervals which:
