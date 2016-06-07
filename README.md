@@ -22,27 +22,41 @@ The radio has three buttons - play, stop, and eject.
 
 ## Using the software
 
-The repository contains two folder 'forRadioPi' and 'forServerPi'. As such two raspberry PI computers are required.
+The repository contains two folders; 'forRadioPi' and 'forServerPi'. Two raspberry PI computers are required to fully recreate our system.
 
-+ The code within the forRadioPi folder should be loaded onto a raspberry pi and placed within the modified radio. The job of this code is to look for user interactions with the radio and then play the appropriate audio files, display the appropriate images on the screen, or eject/withdraw the screen. To use this code start with: `python physicalInputs.py`
++ The code within the forRadioPi folder should be loaded onto a raspberry pi and placed within the modified radio. The job of this code is to look for user interactions with the radio and then play the appropriate audio files, display the appropriate images on the screen, and/or eject/withdraw the screen. To use this code start with: `python physicalInputs.py`
 
 + The code within the forServerPi folder should be loaded onto a pi which does not need to be placed within the radio. The job of this code is to run scripts at regular intervals which:
-    - for the twitter streams: scrape twitter and returns tweets including the @uniofnewcastle address, and tweets with a hash tag relating to the user's research interests (which in this case was #breastfeeding). These tweets are parsed to make them more legible and fed into a text to speech convertor. The audio files which are returned are then pushed onto the PI within the radio.
+    - for the twitter streams: scrapes twitter and returns tweets including the @uniofnewcastle address, and tweets with a hash tag relating to the user's research interests (which in this case was #breastfeeding). These tweets are parsed to make them clearer then fed into a text to speech convertor. The audio files which are returned are then pushed onto the PI within the radio.
     - for the instagram stream: Stuart to complete
-    - To use this code ensure you follow the dependencies info below. Then simply start the PI. The Cron file will call all the python scripts as appropriate. 
+    - To use this code ensure you follow the dependencies info below, then simply start the PI. The Cron file will call all the python scripts as appropriate. 
 
 ## Installing dependancies
 
-Twython is used to scrape twitter. It must be installed on the serverPI. 
+### serverPi dependencies
+
+Twython is used to scrape twitter. It must be installed. 
     
     sudo pip install twython
   
-You must modify both twythonTool.py and twythonSpecialInterestTool.py (lines 8..12 in both files) to include your own twitter app key, app secret, oauth token, and oauth token secret. 
+You must modify both twythonTool.py and twythonSpecialInterestTool.py (lines 8 to 12 in both files) to include your own twitter app key, app secret, oauth token, and oauth token secret. 
 
 CereProc is used for the text to speech conversion. To apply for an academic license and to download the code visit: https://www.cereproc.com/en/products/academic 
-+ On the server PI you must include a voice file (heather.voice in our case), a licence file, and the cerevoice_eng python library. These are not included within this repository for copyright reasons. 
-+ Within the txt2wavTool.py file (line 41) you must point to the cerevoice_eng/pylib folder that is on your system. 
-+ Within scrapeTwitter.py (line 12) you must point to licence file and the voice file on your system.
++ You must include a voice file (heather.voice in our case), a licence file, and the cerevoice_eng python library. These are not included within this repository for copyright reasons. 
++ Within the txt2wavTool.py file (line 41) you must point to the cerevoice_eng/pylib folder. 
++ Within scrapeTwitter.py (line 12) you must point to the licence file and the voice file on your system.
+
+You must modify your PIs cron file so that the python files are called at regular intervals.
+
+    crontab -e
+
+Add the lines:
+
+    Stuart to complete
+    
+### radioPi dependencies
+
+There are no dependencies for this Pi.
 
 
 
