@@ -10,36 +10,36 @@ A focus group of older people expressed a desire for Newcastle University's digi
 
 The radio has a dial to allow the user to select one of four streams:
 
-* Newcastle University's twitter communications
+* Newcastle University's Twitter communications
 * Twitter activity relating to the user's research area of interest.
 * Newcastle University's Facebook activity
 * Newcastle University's Instagram activity
 
 The radio has three buttons - play, stop, and eject.
-+ The play button reads out tweets if one of the two twitter streams is selectd
++ The play button reads out tweets if one of the two Twitter streams is selectd
 + The stop button ends audio playback
 + The eject button toggles the screen in and out of the radio. 
 
 ## Using the software
 
-The repository contains two folders; 'forRadioPi' and 'forServerPi'. Two raspberry PI computers are required to fully recreate our system.
+The repository contains two folders; 'forRadioPi' and 'forServerPi'. Two Raspberry Pi computers are required to fully recreate our system.
 
-+ The code within the forRadioPi folder should be loaded onto a raspberry pi and placed within the modified radio. The job of this code is to look for user interactions with the radio and then play the appropriate audio files, display the appropriate images on the screen, and/or eject/withdraw the screen. To use this code start with: `python physicalInputs.py`
++ The code within the forRadioPi folder should be loaded onto a Raspberry Pi and placed within the modified radio. The job of this code is to look for user interactions with the radio and then play the appropriate audio files, display the appropriate images on the screen, and/or eject/withdraw the screen. To use this code start with: `python physicalInputs.py`
 
-+ The code within the forServerPi folder should be loaded onto a pi which does not need to be placed within the radio. The job of this code is to run scripts at regular intervals which:
-    - for the twitter streams: scrapes twitter and returns tweets including the @uniofnewcastle address, and tweets with a hash tag relating to the user's research interests (which in this case was #breastfeeding). These tweets are parsed to make them clearer then fed into a text to speech convertor. The audio files which are returned are then pushed onto the PI within the radio.
-    - for the instagram stream: Stuart to complete
-    - To use this code ensure you follow the dependencies info below, then simply start the PI. The Cron file will call all the python scripts as appropriate. 
++ The code within the forServerPi folder should be loaded onto a Pi which does not need to be placed within the radio. The job of this code is to run scripts at regular intervals which:
+    - for the Twitter streams: scrapes Twitter and returns tweets including the @uniofnewcastle address, and tweets with a hash tag relating to the user's research interests (which in this case was #breastfeeding). These tweets are parsed to make them clearer then fed into a text to speech convertor. The audio files which are returned are then pushed onto the Pi within the radio.
+    - for the Instagram stream: Stuart to complete
+    - To use this code ensure you follow the dependencies info below, then simply start the Pi. The Cron file will call all the python scripts as appropriate. 
 
 ## Installing dependancies
 
 ### serverPi dependencies
 
-Twython is used to scrape twitter. It must be installed. 
+Twython is used to scrape Twitter. It must be installed. 
     
     sudo pip install twython
   
-You must modify both twythonTool.py and twythonSpecialInterestTool.py (lines 8 to 12 in both files) to include your own twitter app key, app secret, oauth token, and oauth token secret. 
+You must modify both twythonTool.py and twythonSpecialInterestTool.py (lines 8 to 12 in both files) to include your own Twitter app key, app secret, oauth token, and oauth token secret. 
 
 CereProc is used for the text to speech conversion. To apply for an academic license and to download the code visit: https://www.cereproc.com/en/products/academic 
 + You must include a voice file (heather.voice in our case), a licence file, and the cerevoice_eng python library. These are not included within this repository for copyright reasons. 
