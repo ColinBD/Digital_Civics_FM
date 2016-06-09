@@ -1,4 +1,4 @@
-# physicalInputs script written by Colin, Stuart and Helen for the purpose of out Technologies for Digital Civics module
+# physicalInputs script written by Colin, Stuart and Helen for the purpose of our Technologies for Digital Civics module
 
 import RPi.GPIO as GPIO
 import subprocess
@@ -29,7 +29,7 @@ try:
 		#print 'testing ' + str(GPIO.input(12)) + ' ' + str(GPIO.input(16)) + ' ' + str(GPIO.input(18)) + ' ' + str(GPIO.input(22))
 		
 		#check rotary switch position
-		if GPIO.input(12) == 0: #knob position 1 so twitter selected
+		if GPIO.input(12) == 0: #knob position 1 so Twitter selected
 			if selected != 'twitter':
 				print 'twitter selected'
 				selected = 'twitter'
@@ -40,7 +40,7 @@ try:
 				if ejectState == True:
 					ejectState = False
 					subprocess.call(['eject', '-t'])
-		elif GPIO.input(16) == 0: #knob position 2 so special interest selected
+		elif GPIO.input(16) == 0: #knob position 2 so Special Interest selected
 			if selected != 'specialInterest':
 				selected = 'specialInterest'
 				print 'special interest selected'
@@ -51,7 +51,7 @@ try:
 				if ejectState == True:
 					ejectState = False
 					subprocess.call(['eject', '-t'])
-		elif GPIO.input(18) == 0: #knob position 3 so facebook selected
+		elif GPIO.input(18) == 0: #knob position 3 so Facebook selected
 			if selected != 'facebook':
 				selected = 'facebook'
 				print 'facebook selected'
@@ -62,7 +62,7 @@ try:
 				if ejectState == True:
 					ejectState = False
 					subprocess.call(['eject', '-t'])
-		else: #knob position 4 so instagram selected
+		else: #knob position 4 so Instagram selected
 			if selected != 'instagram':
 				selected = 'instagram'
 				pygame.mixer.music.stop() #ensure no other audio is playing
