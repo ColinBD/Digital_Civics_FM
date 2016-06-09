@@ -46,7 +46,7 @@ CereProc is used for the text to speech conversion. To apply for an academic lic
 + Within the txt2wavTool.py file (line 41) you must point to the cerevoice_eng/pylib folder. 
 + Within scrapeTwitter.py (line 12) you must point to the licence file and the voice file on your system.
 
-You must modify your PIs cron file so that the python files are called at regular intervals.
+You must modify your Pi's cron file so that the Python files are called at regular intervals.
 
     crontab -e
 
