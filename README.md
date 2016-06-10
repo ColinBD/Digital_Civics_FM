@@ -52,7 +52,9 @@ You must modify your Pi's cron file so that the Python files are called at regul
 
 Add the lines:
 
-    Stuart to complete
+    10 * * * * python /home/pi/forServerPi/Twitter.py
+    4 * * * * sudo php -f rm -r * /var/www/html/pictures
+    5 * * * * sudo php -f /var/www/html/scraper.php
     
 ### radioPi dependencies
 
