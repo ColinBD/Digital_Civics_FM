@@ -28,7 +28,7 @@ The repository contains two folders; 'forRadioPi' and 'forServerPi'. Two Raspber
 
 + The code within the forServerPi folder should be loaded onto a Pi which does not need to be placed within the radio. The job of this code is to run scripts at regular intervals which:
     - for the Twitter streams: scrapes Twitter and returns tweets including the @uniofnewcastle address, and tweets with a hash tag relating to the user's research interests (which in this case was #breastfeeding). These tweets are parsed to make them clearer then fed into a text to speech convertor. The audio files which are returned are then pushed onto the Pi within the radio.
-    - for the Instagram stream: Stuart to complete
+    - for the Instagram stream: A scraper file looks at all the accounts specified within an array and then downloads the latest 12 images of those accounts so that they are accessible for the RadioPi to display. 
     - To use this code ensure you follow the dependencies info below, then simply start the Pi. The Cron file will call all the python scripts as appropriate. 
 
 ## Installing dependancies
